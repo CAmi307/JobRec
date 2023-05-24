@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "671832897189",
+    "project_id": "jobrec-e0eac",
+    "storage_bucket": "jobrec-e0eac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:671832897189:android:8fae376d44228e87157f4c",
+        "android_client_info": {
+          "package_name": "com.jobrec"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "671832897189-ig2147du93mq7ot1d1khg72l55iogh22.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jobrec",
+            "certificate_hash": "f89d850fc4801962aa289f2a8f5172fcbc8f91ee"
+          }
+        },
+        {
+          "client_id": "671832897189-ju4tj6ehm60sm2mscd5f2lbgfhfg80v6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAqv89KbxAeULzmCZDlQTqHgBq-BaTAtA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "671832897189-ju4tj6ehm60sm2mscd5f2lbgfhfg80v6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

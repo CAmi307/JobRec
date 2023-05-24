@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.jobrec.app.EmployerMainActivity">
+
+    <item
+        android:id="@+id/action_complete_profile"
+        android:orderInCategory="100"
+        android:title="Complete your profile"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_your_applications"
+        android:orderInCategory="100"
+        android:title="Your applications"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_log_out"
+        android:orderInCategory="100"
+        android:title="Log out"
+        app:showAsAction="never" />
+</menu>

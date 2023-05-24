@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.SignUpFragment">
+
+    <TextView
+        android:id="@+id/login_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="125dp"
+        android:paddingBottom="30dp"
+        android:text="JobRec"
+        android:textColor="@color/dark_blue"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/first_name_field_edit_text"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="15dp"
+        android:paddingVertical="5dp"
+        android:text="First Name"
+        android:textAlignment="center"
+        android:textColor="@color/gray"
+        android:textSize="18dp" />
+
+    <EditText
+        android:id="@+id/last_name_field_edit_text"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="15dp"
+        android:paddingVertical="5dp"
+        android:text="Last Name"
+        android:textAlignment="center"
+        android:textColor="@color/gray"
+        android:textSize="18dp" />
+
+
+    <EditText
+        android:id="@+id/email_field_edit_text"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="15dp"
+        android:paddingVertical="5dp"
+        android:text="Email"
+        android:textAlignment="center"
+        android:textColor="@color/gray"
+        android:textSize="18dp" />
+
+
+    <EditText
+        android:id="@+id/password_field_edit_text"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:paddingVertical="5dp"
+        android:textAlignment="center"
+        android:textColor="@color/gray"
+        android:textColorHint="@color/gray"
+        android:textSize="18dp" />
+
+
+    <EditText
+        android:id="@+id/password_confirmaiton_field_edit_text"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="Confirm password"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:paddingVertical="5dp"
+        android:textAlignment="center"
+        android:textColor="@color/gray"
+        android:textColorHint="@color/gray"
+        android:textSize="18dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What is your account type?"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"/>
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <RadioButton android:id="@+id/radio_candidate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Candidate"
+            android:layout_gravity="center"/>
+        <RadioButton android:id="@+id/radio_employer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Employer"
+            android:layout_gravity="center" />
+        <!--        <RadioButton android:id="@+id/radio_admin"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="Admin"-->
+        <!--            android:layout_gravity="center"/>-->
+    </RadioGroup>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/sign_up_button"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_corners_button"
+        android:text="Sign up"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/question_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.5"
+        android:clickable="true"
+        android:gravity="bottom"
+        android:paddingBottom="10dp"
+        android:text="Already have an account? Log in"
+        android:textColor="@color/dark_blue"
+        android:textSize="15dp" />
+
+</LinearLayout>

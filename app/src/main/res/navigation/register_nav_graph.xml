@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/LogInFragment">
+
+    <fragment
+        android:id="@+id/LogInFragment"
+        android:name="com.jobrec.ui.LogInFragment"
+        android:label="Log In"
+        tools:layout="@layout/fragment_log_in">
+
+        <action
+            android:id="@+id/action_LogIn_Fragment_to_SignUp_Fragment"
+            app:destination="@id/SignUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SignUpFragment"
+        android:name="com.jobrec.ui.SignUpFragment"
+        android:label="Sign Up"
+        tools:layout="@layout/fragment_sign_up">
+
+        <action
+            android:id="@+id/action_SignUp_Fragment_to_LogIn_Fragment"
+            app:destination="@id/LogInFragment" />
+    </fragment>
+</navigation>

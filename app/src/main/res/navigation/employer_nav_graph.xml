@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/employer_nav_graph"
+    app:startDestination="@id/JobsPageFragment">
+
+    <fragment
+        android:id="@+id/JobsPageFragment"
+        android:name="com.jobrec.ui.JobsPageFragment"
+        android:label="Your job offers"
+        tools:layout="@layout/fragment_jobs_page">
+        <action
+            android:id="@+id/action_jobs_page_to_candidates"
+            app:destination="@id/CandidatesPageFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/CandidatesPageFragment"
+        android:name="com.jobrec.ui.CandidatesPageFragment"
+        android:label="Your future colleagues"
+        tools:layout="@layout/fragment_candidates_page">
+
+        <argument
+            android:name="jobId"
+            app:argType="string" />
+
+    </fragment>
+
+</navigation>
