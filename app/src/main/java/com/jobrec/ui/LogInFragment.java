@@ -1,12 +1,18 @@
 package com.jobrec.ui;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
@@ -15,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -78,6 +85,13 @@ public class LogInFragment extends Fragment {
             }
         });
 
+        binding.forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showRecoverPasswordDialog();
+            }
+        });
+
         binding.logInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -137,14 +151,6 @@ public class LogInFragment extends Fragment {
         binding = null;
     }
 
-    private void startMainPageForUser() {
-        switch (userType) {
-            case MANAGER: {
-//                startMainPageForActivity();
-            }
-        }
-    }
-
     private void startMainPageForActivity(Class destinationClass) {
         Intent intent = new Intent(getActivity(), destinationClass);
         startActivity(intent);
@@ -168,6 +174,70 @@ public class LogInFragment extends Fragment {
                 if (checked) {
                     userType = UserType.MANAGER;
                 }
+            }
+        });
+    }
+
+    private void showRecoverPasswordDialog() {
+        AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+        builder.setTitle("Recover Password");
+        LinearLayout linearLayout=new LinearLayout(getContext());
+        final EditText emailEditText= new EditText(getContext());
+
+        // write the email using which you registered
+        emailEditText.setHint("Email");
+        emailEditText.setMinEms(16);
+        emailEditText.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        linearLayout.addView(emailEditText);
+        linearLayout.setPadding(10,10,10,10);
+        builder.setView(linearLayout);
+
+        // Click on Recover and a email will be sent to your registered email id
+        builder.setPositiveButton("Recover", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String email=emailEditText.getText().toString().trim();
+                beginRecovery(email);
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.create().show();
+    }
+
+    private void beginRecovery(String email) {
+        ProgressDialog loadingBar=new ProgressDialog(getContext());
+        loadingBar.setMessage("Sending Email....");
+        loadingBar.setCanceledOnTouchOutside(false);
+        loadingBar.show();
+
+        // calling sendPasswordResetEmail
+        // open your email and write the new
+        // password and then you can login
+        mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                loadingBar.dismiss();
+                if(task.isSuccessful())
+                {
+                    // if isSuccessful then done message will be shown
+                    // and you can change the password
+                    Toast.makeText(getContext(),"Done sent",Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(getContext(),"Error Occurred",Toast.LENGTH_LONG).show();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                loadingBar.dismiss();
+                Toast.makeText(getContext(),"Error Failed",Toast.LENGTH_LONG).show();
             }
         });
     }

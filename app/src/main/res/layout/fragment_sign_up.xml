@@ -25,7 +25,7 @@
         android:layout_gravity="center"
         android:padding="15dp"
         android:paddingVertical="5dp"
-        android:text="First Name"
+        android:hint="First Name"
         android:textAlignment="center"
         android:textColor="@color/gray"
         android:textSize="18dp" />
@@ -37,7 +37,7 @@
         android:layout_gravity="center"
         android:padding="15dp"
         android:paddingVertical="5dp"
-        android:text="Last Name"
+        android:hint="Last Name"
         android:textAlignment="center"
         android:textColor="@color/gray"
         android:textSize="18dp" />
@@ -50,7 +50,7 @@
         android:layout_gravity="center"
         android:padding="15dp"
         android:paddingVertical="5dp"
-        android:text="Email"
+        android:hint="Email"
         android:textAlignment="center"
         android:textColor="@color/gray"
         android:textSize="18dp" />

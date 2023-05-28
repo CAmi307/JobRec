@@ -101,15 +101,4 @@ public class JobsPageFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
-//    private ArrayList<Job> scanAvailableJobs() {
-//        ArrayList<Job> availableJobs = new ArrayList<>();
-//
-////        availableJobs.add(new Job("Software Developer", "Luxoft", "Develop user friendly Android apps", "loooong description: TODO"));
-////        availableJobs.add(new Job("Java Developer", "IBM", "Develop desktop applications", "loooong description: TODO"));
-////        availableJobs.add(new Job("Scrum Master", "Microsoft", "Be the scrum master of all scrum masters", "loooong description: TODO"));
-////        availableJobs.add(new Job("Data Base Developer", "Oracle", "Maintenance of data bases", "loooong description: TODO"));
-//
-//        return availableJobs;
-//    }
 }

@@ -14,23 +14,35 @@ public class SuggestionFinder {
 
         for(JobAPI job: availableJobs) {
             int counter = 0;
-            if(Objects.equals(job.getSalaryExpectations(), candidate.getSalaryExpectations())) {
-                counter++;
+            if(candidate.getSalaryExpectations()!=null) {
+                if(Objects.equals(job.getSalaryExpectations(), candidate.getSalaryExpectations())) {
+                    counter++;
+                }
             }
-            if(job.getExperience() <= candidate.getExperience()) {
-                counter++;
+            if(candidate.getExperience()!=null){
+                if(job.getExperience() <= candidate.getExperience()) {
+                    counter++;
+                }
             }
-            if(Objects.equals(job.getLastDegree(), candidate.getLastDegree())) {
-                counter++;
+            if(candidate.getLastDegree()!=null) {
+                if(Objects.equals(job.getLastDegree(), candidate.getLastDegree())) {
+                    counter++;
+                }
             }
-            if (Objects.equals(job.getCity(), candidate.getCity())) {
-                counter++;
+            if(candidate.getCity()!=null) {
+                if (Objects.equals(job.getCity(), candidate.getCity())) {
+                    counter++;
+                }
             }
-            if(Objects.equals(job.getWorkingHours(), candidate.getWorkingHoursPreferred())) {
-                counter++;
+            if(candidate.getWorkingHoursPreferred()!=null){
+                if(Objects.equals(job.getWorkingHours(), candidate.getWorkingHoursPreferred())) {
+                    counter++;
+                }
             }
-            if(Objects.equals(job.getWorkingType(), candidate.getWorkingTypePreferred())) {
-                counter++;
+            if(candidate.getWorkingTypePreferred()!=null) {
+                if(Objects.equals(job.getWorkingType(), candidate.getWorkingTypePreferred())) {
+                    counter++;
+                }
             }
 
             if(counter >= 3) {
