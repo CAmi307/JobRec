@@ -88,9 +88,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What is your account type?"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp"
+        android:text="What is your account type?" />
 
     <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/radio_group"
@@ -98,16 +98,20 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal">
-        <RadioButton android:id="@+id/radio_candidate"
+
+        <RadioButton
+            android:id="@+id/radio_candidate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Candidate"
-            android:layout_gravity="center"/>
-        <RadioButton android:id="@+id/radio_employer"
+            android:layout_gravity="center"
+            android:text="Candidate" />
+
+        <RadioButton
+            android:id="@+id/radio_employer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Employer"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:text="Employer" />
         <!--        <RadioButton android:id="@+id/radio_admin"-->
         <!--            android:layout_width="wrap_content"-->
         <!--            android:layout_height="wrap_content"-->
@@ -117,9 +121,10 @@
 
     <ProgressBar
         android:id="@+id/progress_bar"
-        android:visibility="gone"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/sign_up_button"
