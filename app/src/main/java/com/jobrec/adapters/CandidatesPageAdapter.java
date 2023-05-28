@@ -85,7 +85,7 @@ public class CandidatesPageAdapter extends RecyclerView.Adapter<CandidatesPageAd
         mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         mDialog.setCanceledOnTouchOutside(true);
         TextView question = mDialog.findViewById(R.id.question_text);
-        question.setText("Accep");
+        question.setText("Accept this candidate?");
         Button buttonYes = mDialog.findViewById(R.id.yes_btn);
         buttonYes.setOnClickListener(new View.OnClickListener() {
             @Override

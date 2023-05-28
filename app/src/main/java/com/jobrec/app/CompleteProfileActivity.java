@@ -10,14 +10,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.jobrec.R;
-import com.jobrec.controllers.CandidateController;
 import com.jobrec.databinding.ActivityCompleteProfileBinding;
 import com.jobrec.db.UsersDAO;
 import com.jobrec.domain.Candidate;
 import com.jobrec.utils.Callback;
-
-import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -85,7 +81,7 @@ public class CompleteProfileActivity extends AppCompatActivity {
                 this,
                 androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
                 degrees
-                );
+        );
 
         usersDAO.getUser(
                 FirebaseAuth.getInstance().getCurrentUser().getEmail().toString(),
@@ -93,13 +89,13 @@ public class CompleteProfileActivity extends AppCompatActivity {
                     @Override
                     public void onCallbackReceived(Object obj) {
                         Candidate candidate = (Candidate) obj;
-                        if(candidate.getFirstName()!= null) {
+                        if (candidate.getFirstName() != null) {
                             binding.firstName.setText(candidate.getFirstName());
                         }
-                        if(candidate.getLastName()!=null) {
+                        if (candidate.getLastName() != null) {
                             binding.lastName.setText(candidate.getLastName());
                         }
-                        if(candidate.getCity()!=null) {
+                        if (candidate.getCity() != null) {
                             binding.city.setText(candidate.getCity());
                         }
                     }
@@ -110,29 +106,29 @@ public class CompleteProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Map<String, Object> map = new HashMap<>();
-                if(selectedDegree!=null) {
+                if (selectedDegree != null) {
                     map.put("lastDegree", selectedDegree);
                 }
-                if(selectedWorkingHours!=null){
+                if (selectedWorkingHours != null) {
                     map.put("workingHours", selectedWorkingHours);
                 }
-                if(selectedWorkingType!=null) {
+                if (selectedWorkingType != null) {
                     map.put("workingType", selectedWorkingType);
                 }
-                if(binding.firstName.getText()!=null){
+                if (binding.firstName.getText() != null) {
                     String firstName = binding.firstName.getText().toString();
                     map.put("firstName", firstName);
                 }
-                if(binding.lastName.getText()!=null){
+                if (binding.lastName.getText() != null) {
                     String lastName = binding.lastName.getText().toString();
                     map.put("lastName", lastName);
                 }
-                if(binding.city.getText()!=null){
+                if (binding.city.getText() != null) {
                     String city = binding.city.getText().toString();
                     map.put("city", city);
                 }
 
-                for(Object pair: map.values()) {
+                for (Object pair : map.values()) {
                     Log.e("AMALIA", pair.toString());
                 }
                 usersDAO.updateCurrentUserData(map);

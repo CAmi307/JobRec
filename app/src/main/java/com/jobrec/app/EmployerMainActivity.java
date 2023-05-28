@@ -1,9 +1,15 @@
 package com.jobrec.app;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -12,14 +18,18 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.jobrec.R;
 import com.jobrec.databinding.ActivityEmployerMainBinding;
+import com.jobrec.domain.Candidate;
+import com.jobrec.domain.Manager;
 
 public class EmployerMainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityEmployerMainBinding binding;
 
+    private Dialog mDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +52,31 @@ public class EmployerMainActivity extends AppCompatActivity {
             }
         });
 
+        mDialog = new Dialog(this);
+        mDialog.setContentView(R.layout.apply_popup);
+        mDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        mDialog.setCanceledOnTouchOutside(true);
+        TextView question = mDialog.findViewById(R.id.question_text);
+        question.setText("Do you want to log out?");
+        Button buttonYes = mDialog.findViewById(R.id.yes_btn);
+        buttonYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Candidate.isSingleton = false;
+                Manager.isSingleton = false;
+                Intent intent = new Intent(EmployerMainActivity.this, RegisterActivity.class);
+                mDialog.dismiss();
+                startActivity(intent);
+            }
+        });
+        Button buttonNo = mDialog.findViewById(R.id.no_btn);
+        buttonNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mDialog.cancel();
+            }
+        });
     }
 
     @Override
@@ -59,8 +94,8 @@ public class EmployerMainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_log_out) {
+            mDialog.show();
         }
 
         return super.onOptionsItemSelected(item);
